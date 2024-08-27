@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:latihan2/widgets/cards/post_card.dart';
+import 'package:latihan2/widgets/socmed/friend_updates.dart';
 
 class Socmed extends StatefulWidget {
   const Socmed({super.key});
@@ -16,21 +18,52 @@ class _SocmedState extends State<Socmed> {
     });
   }
 
-  final List<Widget> _pages = [
-    const Center(child: Text('Home', style: TextStyle(fontSize: 48))),
-    const Center(child: Text('Search', style: TextStyle(fontSize: 48))),
-    const Center(child: Text('Video', style: TextStyle(fontSize: 48))),
-    const Center(child: Text('Shop', style: TextStyle(fontSize: 48))),
-    const Center(child: Text('Profile', style: TextStyle(fontSize: 48))),
-  ];
+  /* Todo
+  ** - Sliver Scroll
+  ** - SVG
+  ** - Stack
+  ** - Dark mode
+   */
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Social Media', style: TextStyle(fontWeight: FontWeight.bold),),
+        title: const Text('Social Media', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
+        actions: const [
+          Icon(Icons.add_box_outlined, size: 30),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Icon(Icons.favorite_outline, size: 30),
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 16),
+            child: Icon(Icons.send_outlined, size: 30)
+          )
+        ],
       ),
-      body: _pages[_selectedIndex],
+      body: Column(
+        children: [
+          SizedBox(
+            height: 140,
+            child: FriendUpdates(),
+          ),
+          const Divider(height: 1),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index){
+                return const Column(
+                  children: [
+                    PostCard(name: 'John Doe'),
+                    SizedBox(height: 32)
+                  ],
+                );
+              },
+              itemCount: 5,
+            ),
+          ),
+        ]
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
