@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latihan2/widgets/cards/post_card.dart';
 import 'package:latihan2/widgets/socmed/friend_updates.dart';
 
@@ -18,50 +19,51 @@ class _SocmedState extends State<Socmed> {
     });
   }
 
-  /* Todo
-  ** - Sliver Scroll
-  ** - SVG
-  ** - Stack
-  ** - Dark mode
-   */
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Social Media', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
-        actions: const [
-          Icon(Icons.add_box_outlined, size: 30),
+        title: SvgPicture.asset(
+          'assets/socmed/logo.svg',
+          colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn)
+        ),
+        // title: const Text('Social Media', style: TextStyle(fontWeight: FontWeight.bold),),
+        actions: [
+          SvgPicture.asset('assets/socmed/icon_add.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn),),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Icon(Icons.favorite_outline, size: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: SvgPicture.asset('assets/socmed/icon_favorite.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn),),
           ),
           Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(Icons.send_outlined, size: 30)
+            padding: const EdgeInsets.only(right: 16),
+            child: SvgPicture.asset('assets/socmed/icon_send.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn),),
           )
         ],
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 140,
-            child: FriendUpdates(),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverList(
+            delegate: SliverChildListDelegate([
+              Column(children: [
+                SizedBox(
+                  height: 140,
+                  child: FriendUpdates(),
+                ),
+                Divider(height: 1, color: Theme.of(context).colorScheme.outline),
+              ])
+            ]),
           ),
-          const Divider(height: 1),
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index){
-                return const Column(
-                  children: [
-                    PostCard(name: 'John Doe'),
-                    SizedBox(height: 32)
-                  ],
-                );
-              },
-              itemCount: 5,
-            ),
-          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index){
+              return const Column(
+                children: [
+                  PostCard(name: 'John Doe'),
+                  SizedBox(height: 32)
+                ],
+              );
+            },
+            childCount: 5,
+          ))
         ]
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -74,23 +76,26 @@ class _SocmedState extends State<Socmed> {
         onTap: _selectPage,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(_selectedIndex == 0 ? Icons.home : Icons.home_outlined),
+            icon: SvgPicture.asset('assets/socmed/icon_home.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(_selectedIndex == 1 ? Icons.search : Icons.search_outlined),
+            icon: SvgPicture.asset('assets/socmed/icon_search.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn)),
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(_selectedIndex == 2 ? Icons.video_call : Icons.video_call_outlined),
+            icon: SvgPicture.asset('assets/socmed/icon_live.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn)),
             label: 'Video',
           ),
           BottomNavigationBarItem(
-            icon: Icon(_selectedIndex == 3 ? Icons.shop_2 : Icons.shop_2_outlined),
+            icon: SvgPicture.asset('assets/socmed/icon_store.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn)),
             label: 'Shop',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(_selectedIndex == 4 ? Icons.person_2 : Icons.person_2_outlined),
+          const BottomNavigationBarItem(
+            icon: CircleAvatar(
+              radius: 13,
+              backgroundImage: NetworkImage('https://i.pravatar.cc/100?img=10'),
+            ),
             label: 'Profile',
           ),
         ],
