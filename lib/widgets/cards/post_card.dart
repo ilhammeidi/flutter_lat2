@@ -38,14 +38,14 @@ class PostCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  SvgPicture.asset('assets/socmed/icon_favorite.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn)),
-                  const SizedBox(width: 8),
-                  SvgPicture.asset('assets/socmed/icon_comment.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn)),
-                  const SizedBox(width: 8),
-                  SvgPicture.asset('assets/socmed/icon_send.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn)),
+                  SvgPicture.asset('assets/socmed/icon_favorite.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onSurface, BlendMode.srcIn)),
+                  const Spacer(),
+                  SvgPicture.asset('assets/socmed/icon_comment.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onSurface, BlendMode.srcIn)),
+                  const Spacer(),
+                  SvgPicture.asset('assets/socmed/icon_send.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onSurface, BlendMode.srcIn)),
                   const Expanded(
                     child: Opacity(opacity: 0.5, child: Text('17 hours ago', textAlign: TextAlign.end))
-                  )
+                  ),
                 ],
               ),
               const SizedBox(height: 8),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latihan2/widgets/socmed/friends_data.dart';
 
 class AvatarStatus extends StatelessWidget {
   const AvatarStatus({
@@ -73,9 +74,7 @@ class AvatarStatus extends StatelessWidget {
 
 
 class FriendUpdates extends StatelessWidget {
-  FriendUpdates({super.key});
-
-  final List friends = ['John Doe', 'Jean Doe', 'Jim Doe', 'Jena Doe', 'Jinx Doe', 'Jihan Doe', 'Johan Done', 'Jihan Doe'];
+  const FriendUpdates({super.key});
 
   @override
   Widget build(BuildContext context) {

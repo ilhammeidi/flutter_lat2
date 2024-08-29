@@ -1,0 +1,1 @@
+final List friends = ['John Doe', 'Jean Doe', 'Jim Doe', 'Jena Doe', 'Jinx Doe', 'Jihan Doe', 'Johan Done', 'Jihan Doe'];

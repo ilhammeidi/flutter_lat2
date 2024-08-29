@@ -11,36 +11,60 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Latihan 1',
+      title: 'Latihan 2',
       themeMode: ThemeMode.light,
       theme: ThemeData(
-        primaryColor: Colors.amber[400],
+        primaryColor: Colors.amber[500],
+        primaryColorDark: Colors.amber[900],
+        primaryColorLight: Colors.amber[100],
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0)
+            )
+          )
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))
+        ),
         colorScheme: ColorScheme.light(
-          primary: Colors.blue,           // Primary color of the app
-          secondary: Colors.orange,        // Secondary color (used for accents)
-          surface: Colors.white,           // The background color for cards and menus
-          error: Colors.red,           // Color for error messages and icons
-          onPrimary: Colors.black,       // Text and icons on secondary color
-          onSecondary: Colors.grey[700]!,         // Text and icons on primary color
-          onSurface: Colors.black,         // Text and icons on surface color
-          onError: Colors.red,           // Text and icons on error color
+          primary: Colors.blue,
+          onPrimary: Colors.white,
+          primaryContainer: Colors.blue[200],
+          onPrimaryContainer: Colors.blue[800],
+          secondary: Colors.orange,
+          onSecondary: Colors.white,
+          secondaryContainer: Colors.orange[200],
+          onSecondaryContainer: Colors.orange[900],
+          surface: Colors.white,
+          onSurface: Colors.black,
+          surfaceContainerLowest: Colors.grey[200] ,
+          onSurfaceVariant: Colors.grey[500],
+          error: Colors.red,
+          onError: Colors.white,
           brightness: Brightness.light,
-          outline: Colors.grey[300]!,   // Defines whether the color scheme is light or dark
+          outline: Colors.grey[300]!,
         ),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         colorScheme: ColorScheme.dark(
-          primary: Colors.blue,           // Primary color of the app
-          secondary: Colors.orange,        // Secondary color (used for accents)
-          surface: Colors.black,           // The background color for cards and menus
-          error: Colors.red,           // Color for error messages and icons
-          onPrimary: Colors.white,         // Text and icons on primary color
-          onSecondary: Colors.grey[300]!,      // Text and icons on secondary color
-          onSurface: Colors.white,         // Text and icons on surface color
-          onError: Colors.red,           // Text and icons on error color
-          brightness: Brightness.dark,  
-          outline: Colors.grey[800]!,   // Defines whether the color scheme is light or dark
+          primary: Colors.blue,
+          onPrimary: Colors.white,
+          primaryContainer: Colors.blue[800],
+          onPrimaryContainer: Colors.blue[200],
+          secondary: Colors.orange,
+          onSecondary: Colors.white,
+          secondaryContainer: Colors.orange[900],
+          onSecondaryContainer: Colors.orange[200],
+          surface: Colors.black,
+          onSurface: Colors.white,
+          surfaceContainerLowest: Colors.grey[800] ,
+          onSurfaceVariant: Colors.grey[200],
+          error: Colors.red,
+          onError: Colors.white,
+          brightness: Brightness.dark,
+          outline: Colors.grey[800]!, // Defines whether the color scheme is light or dark
         ),
       ),
       home: const Socmed()
