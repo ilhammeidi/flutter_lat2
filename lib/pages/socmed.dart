@@ -13,7 +13,6 @@ class Socmed extends StatefulWidget {
 class _SocmedState extends State<Socmed> {
   int _selectedIndex = 3;
   void _selectPage(int index) {
-    print('index no: $index');
     setState(() {
       _selectedIndex = index;
     });
