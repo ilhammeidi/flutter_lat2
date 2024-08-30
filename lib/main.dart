@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan2/pages/socmed.dart';
+import 'package:latihan2/pages/grocery.dart';
+// import 'package:latihan2/pages/socmed.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,6 +13,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Latihan 2',
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: ThemeData(
         primaryColor: Colors.amber[500],
@@ -20,7 +22,7 @@ class MainApp extends StatelessWidget {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(0)
+              borderRadius: BorderRadius.circular(20)
             )
           )
         ),
@@ -67,7 +69,7 @@ class MainApp extends StatelessWidget {
           outline: Colors.grey[800]!, // Defines whether the color scheme is light or dark
         ),
       ),
-      home: const Socmed()
+      home: const Grocery()
     );
   }
 }
