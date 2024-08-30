@@ -22,6 +22,6 @@ class BtnStyle {
   );
 }
 
-double spacing(int val) {
+double spacingUnit(int val) {
   return val * 8;
 }

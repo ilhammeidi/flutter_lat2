@@ -35,7 +35,7 @@ class ProductCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: spacing(1)),
+            padding: EdgeInsets.symmetric(vertical: spacingUnit(1)),
             child: (
               Column(children: [
                 Text('Rp $price', style: const TextStyle(color: Colors.green, fontSize: 20, fontWeight: FontWeight.bold)),

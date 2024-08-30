@@ -22,7 +22,7 @@ class _GroceryDetailState extends State<GroceryDetail> {
 
   void removeCount() {
     setState(() {
-      if (count <= 0) {
+      if (count >= 0) {
         count = count - 1;
       }
     });
@@ -92,7 +92,7 @@ class _GroceryDetailState extends State<GroceryDetail> {
             )
           ),
           Container(
-            padding: EdgeInsets.all(spacing(2)),
+            padding: EdgeInsets.all(spacingUnit(2)),
             color: Colors.green[100],
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,9 +100,9 @@ class _GroceryDetailState extends State<GroceryDetail> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    IconButton(onPressed: () {addCount();}, icon: Icon(Icons.add_circle_outline, size: 30, color: Theme.of(context).colorScheme.onSurface)),
+                    IconButton(onPressed: () {removeCount();}, icon: Icon(Icons.remove_circle_outline, size: 30, color: Theme.of(context).colorScheme.onSurface)),
                     Text(count.toString(), style: Theme.of(context).textTheme.titleMedium),
-                    IconButton(onPressed: () {removeCount();}, icon: Icon(Icons.remove_circle_outline, size: 30, color: Theme.of(context).colorScheme.onSurface))
+                    IconButton(onPressed: () {addCount();}, icon: Icon(Icons.add_circle_outline, size: 30, color: Theme.of(context).colorScheme.onSurface)),
                   ],
                 ),
                 const SizedBox(width: 8),
