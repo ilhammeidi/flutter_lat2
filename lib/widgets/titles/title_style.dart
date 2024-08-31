@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latihan2/widgets/color_palette.dart';
 
 class TitleStyle {
   static const TextStyle titlePrimary = TextStyle(
@@ -13,7 +14,7 @@ class TitleStyle {
 
 class BtnStyle {
   static ButtonStyle btnPrimary = ElevatedButton.styleFrom(
-    backgroundColor: Colors.deepPurple,
+    backgroundColor: primaryMain,
     foregroundColor: Colors.white,
     padding: const EdgeInsets.symmetric(horizontal: 16),
     shape: const RoundedRectangleBorder(

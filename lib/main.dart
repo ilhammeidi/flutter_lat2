@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan2/pages/grocery.dart';
-// import 'package:latihan2/pages/socmed.dart';
+import 'package:latihan2/pages/cleaning_home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -16,6 +15,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: ThemeData(
+        fontFamily: 'Quicksand',
         primaryColor: Colors.amber[500],
         primaryColorDark: Colors.amber[900],
         primaryColorLight: Colors.amber[100],
@@ -69,7 +69,7 @@ class MainApp extends StatelessWidget {
           outline: Colors.grey[800]!, // Defines whether the color scheme is light or dark
         ),
       ),
-      home: const Grocery()
+      home: const CleaningHome()
     );
   }
 }
