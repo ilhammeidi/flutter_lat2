@@ -1,5 +1,6 @@
 import 'package:change_case/change_case.dart';
 import 'package:flutter/material.dart';
+import 'package:latihan2/models/cleaning_services_data.dart';
 import 'package:latihan2/widgets/color_palette.dart';
 import 'package:latihan2/widgets/titles/title_style.dart';
 
@@ -33,9 +34,9 @@ class _CleaningHomeState extends State<CleaningHome> {
         Stack(
           children: [
             CircleAvatar(
-              radius: 70,
-              backgroundColor: primaryMain,
-              backgroundImage: AssetImage(img),
+              radius: 40,
+              backgroundColor: accentLight,
+              child: Image.asset(img, width: 40)
             ),
             if (checked)
               Positioned(
@@ -147,32 +148,95 @@ class _CleaningHomeState extends State<CleaningHome> {
               sliver: SliverToBoxAdapter(child: Text('Choose Package', style: Theme.of(context).textTheme.headlineMedium),)
             ),
             SliverPadding(
-              padding: EdgeInsets.all(spacingUnit(2)),
-              sliver: SliverToBoxAdapter(child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      changeType('glowing');
-                    },
-                    child: BtnTCategoryThumb(
-                      checked: selectType == 'glowing',
-                      title: 'Glowing',
-                      thumbnail: 'assets/cleaning/five.png',
-                    )
+              padding: EdgeInsets.symmetric(vertical: spacingUnit(2)),
+              sliver: SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 250,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: InkWell(
+                          onTap: () {
+                            changeType('glowing');
+                          },
+                          child: BtnTCategoryThumb(
+                            checked: selectType == 'glowing',
+                            title: 'Glowing',
+                            thumbnail: 'assets/cleaning/five.png',
+                          )
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: InkWell(
+                          onTap: () {
+                            changeType('clean');
+                          },
+                          child: BtnTCategoryThumb(
+                            checked: selectType == 'clean',
+                            title: 'Clean',
+                            thumbnail: 'assets/cleaning/six.png',
+                          )
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: InkWell(
+                          onTap: () {
+                            changeType('glowing');
+                          },
+                          child: BtnTCategoryThumb(
+                            checked: selectType == 'glowing',
+                            title: 'Glowing',
+                            thumbnail: 'assets/cleaning/five.png',
+                          )
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: InkWell(
+                          onTap: () {
+                            changeType('clean');
+                          },
+                          child: BtnTCategoryThumb(
+                            checked: selectType == 'clean',
+                            title: 'Clean',
+                            thumbnail: 'assets/cleaning/six.png',
+                          )
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: InkWell(
+                          onTap: () {
+                            changeType('glowing');
+                          },
+                          child: BtnTCategoryThumb(
+                            checked: selectType == 'glowing',
+                            title: 'Glowing',
+                            thumbnail: 'assets/cleaning/five.png',
+                          )
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: InkWell(
+                          onTap: () {
+                            changeType('clean');
+                          },
+                          child: BtnTCategoryThumb(
+                            checked: selectType == 'clean',
+                            title: 'Clean',
+                            thumbnail: 'assets/cleaning/six.png',
+                          )
+                        ),
+                      ),
+                    ],
                   ),
-                  InkWell(
-                    onTap: () {
-                      changeType('clean');
-                    },
-                    child: BtnTCategoryThumb(
-                      checked: selectType == 'clean',
-                      title: 'Clean',
-                      thumbnail: 'assets/cleaning/six.png',
-                    )
-                  )
-                ],
-              ))
+                )
+              )
             ),
             SliverToBoxAdapter(child: SizedBox(height: spacingUnit(2))),
             SliverPadding(
@@ -235,16 +299,20 @@ class _CleaningHomeState extends State<CleaningHome> {
               padding: EdgeInsets.all(spacingUnit(2)),
               sliver: SliverGrid(
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 200.0,
+                  maxCrossAxisExtent: 150.0,
                   mainAxisSpacing: 10.0,
                   crossAxisSpacing: 10,
-                  childAspectRatio: 1,
+                  childAspectRatio: 0.9,
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index ) {
-                    return extraWidget('assets/cleaning/two.png', 'service 2', true);
+                    return extraWidget(
+                      cleaningServicesData[index].thumb,
+                      cleaningServicesData[index].name,
+                      cleaningServicesData[index].checked,
+                    );
                   },
-                  childCount: 6,
+                  childCount: cleaningServicesData.length,
                 )
               ),
             ),
