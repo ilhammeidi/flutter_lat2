@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.4.4 <4.0.0'
 
 dependencies:
+  change_case: ^2.1.0
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.10+1
@@ -21,3 +22,11 @@ flutter:
   assets:
     - assets/socmed/
     - assets/grocery/
+    - assets/cleaning/
+
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand-Regular.ttf
+        - asset: assets/fonts/Quicksand-Bold.ttf
+          weight: 700

@@ -72,7 +72,6 @@ class AvatarStatus extends StatelessWidget {
   }
 }
 
-
 class FriendUpdates extends StatelessWidget {
   const FriendUpdates({super.key});
 
