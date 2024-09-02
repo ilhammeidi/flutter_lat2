@@ -27,6 +27,11 @@ flutter:
   fonts:
     - family: Quicksand
       fonts:
+        - asset: assets/fonts/Quicksand-Light.ttf
+          weight: 300
         - asset: assets/fonts/Quicksand-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Quicksand-SemiBold.ttf
+          weight: 600
         - asset: assets/fonts/Quicksand-Bold.ttf
           weight: 700

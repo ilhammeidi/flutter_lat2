@@ -57,17 +57,21 @@ class Wallet extends StatelessWidget {
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            accentMain as Color,
-            secondaryMain as Color,
-          ])
+          gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                accentMain as Color,
+                secondaryMain as Color,
+              ]
+          )
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(height: spacingUnit(15)),
             Padding(
               padding: EdgeInsets.all(spacingUnit(2)),
-              child: Text('Saldo', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white)),
+              child: Text('Saldo', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.w700)),
             ),
             Padding(
               padding: EdgeInsets.all(spacingUnit(2)),
