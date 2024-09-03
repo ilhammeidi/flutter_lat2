@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan2/pages/wallet.dart';
+import 'package:latihan2/pages/cake_shop.dart';
 
 void main() {
   runApp(const MainApp());
@@ -69,7 +69,7 @@ class MainApp extends StatelessWidget {
           outline: Colors.grey[800]!, // Defines whether the color scheme is light or dark
         ),
       ),
-      home: const Wallet()
+      home: const CakeShop()
     );
   }
 }
