@@ -69,7 +69,7 @@ class _CakeShopState extends State<CakeShop> with SingleTickerProviderStateMixin
             ]
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height - 300,
+            height: MediaQuery.of(context).size.height - 100,
             width: double.infinity,
             child: TabBarView(controller: _tabController, children: const [
               CakePage(),

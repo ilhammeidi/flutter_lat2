@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:latihan2/widgets/cards/paper_card.dart';
 import 'package:latihan2/widgets/color_palette.dart';
 import 'package:latihan2/widgets/titles/title_style.dart';
 
@@ -28,6 +29,7 @@ class CakeDetail extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios_new_outlined, size: 22),
         ),
       ),
+      extendBody: true,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: spacingUnit(2)),
         child: ListView(
@@ -62,12 +64,14 @@ class CakeDetail extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: spacingUnit(2)),
-              child: Center(
-                child: Text(
-                  'Curabitur at velit nisi. Vivamus dui tortor, scelerisque sed scelerisque quis, sollicitudin eu ex. Nunc consectetur hendrerit urna. ',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyMedium
-                )
+              child: PaperCard(
+                content: Center(
+                  child: Text(
+                    'Curabitur at velit nisi. Vivamus dui tortor, scelerisque sed scelerisque quis, sollicitudin eu ex. Nunc consectetur hendrerit urna. Curabitur at velit nisi. Vivamus dui tortor, scelerisque sed scelerisque quis, sollicitudin eu ex. Nunc consectetur hendrerit urna. Curabitur at velit nisi. Vivamus dui tortor, scelerisque sed scelerisque quis, sollicitudin eu ex. Nunc consectetur hendrerit urna. Curabitur at velit nisi. Vivamus dui tortor, scelerisque sed scelerisque quis, sollicitudin eu ex. Nunc consectetur hendrerit urna. Curabitur at velit nisi. Vivamus dui tortor, scelerisque sed scelerisque quis, sollicitudin eu ex. Nunc consectetur hendrerit urna. Curabitur at velit nisi. Vivamus dui tortor, scelerisque sed scelerisque quis, sollicitudin eu ex. Nunc consectetur hendrerit urna. Curabitur at velit nisi. Vivamus dui tortor, scelerisque sed scelerisque quis, sollicitudin eu ex. Nunc consectetur hendrerit urna. Curabitur at velit nisi. Vivamus dui tortor, scelerisque sed scelerisque quis, sollicitudin eu ex. Nunc consectetur hendrerit urna.',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyMedium
+                  )
+                ),
               ),
             ),
             Padding(
@@ -77,8 +81,8 @@ class CakeDetail extends StatelessWidget {
                   width: MediaQuery.of(context).size.width - 100,
                   child: ElevatedButton(
                     onPressed: () {},
-                    style: BtnStyle.btnPrimary.copyWith(padding: WidgetStateProperty.all(
-                      const EdgeInsets.all(10)
+                    style: BtnStyle.btnPrimary.copyWith(minimumSize: const WidgetStatePropertyAll<Size>(
+                      Size(100, 80)
                     )),
                     child: const Row(children: [
                       FaIcon(FontAwesomeIcons.whatsapp),
@@ -91,7 +95,26 @@ class CakeDetail extends StatelessWidget {
             )
           ],
         ),
-      )
+      ),
+      bottomNavigationBar: BottomAppBar(
+        clipBehavior: Clip.antiAlias,
+        elevation: 10,
+        notchMargin: 10,
+        height: 80,
+        color: Colors.transparent,
+        child: Container(
+          padding: EdgeInsets.all(spacingUnit(2)),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primaryContainer,
+            boxShadow: <BoxShadow>[
+              BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 2, spreadRadius: 2),
+            ],
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+          ),
+          child: const Text('Cart')
+        ),
+      ),
     );
   }
 }
