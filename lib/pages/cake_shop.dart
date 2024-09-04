@@ -3,6 +3,7 @@ import 'package:latihan2/models/cake_data.dart';
 import 'package:latihan2/pages/cake_detail.dart';
 import 'package:latihan2/widgets/color_palette.dart';
 import 'package:latihan2/widgets/titles/title_style.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CakeShop extends StatefulWidget {
   const CakeShop({super.key});
@@ -44,14 +45,14 @@ class _CakeShopState extends State<CakeShop> with SingleTickerProviderStateMixin
       bottomNavigationBar: const BottomNavMenu(),
       body: ListView(
         children: [
-          SizedBox(height: spacingUnit(2)),
+          SizedBox(height: 16.h),
           Padding(
-            padding: EdgeInsets.all(spacingUnit(2)),
+            padding: EdgeInsets.all(16.sp),
             child: Text('Menu', style: Theme.of(context).textTheme.displayLarge?.copyWith(
               fontWeight: FontWeight.bold
             )),
           ),
-          SizedBox(height: spacingUnit(2)),
+          SizedBox(height: 16.h),
           TabBar(
             controller: _tabController,
             indicatorColor: primaryMain,
@@ -60,8 +61,8 @@ class _CakeShopState extends State<CakeShop> with SingleTickerProviderStateMixin
             unselectedLabelColor: Colors.grey.shade500,
             isScrollable: true,
             dividerHeight: 0,
-            padding: EdgeInsets.only(left: spacingUnit(2)),
-            labelPadding: EdgeInsets.only(right: spacingUnit(5)),
+            padding: EdgeInsets.only(left: 16.sp),
+            labelPadding: EdgeInsets.only(right: 40.sp),
             tabs: [
               Tab(child: Text('Cake Box', style: Theme.of(context).textTheme.titleLarge)),
               Tab(child: Text('Cake Sliced', style: Theme.of(context).textTheme.titleLarge)),
@@ -69,7 +70,7 @@ class _CakeShopState extends State<CakeShop> with SingleTickerProviderStateMixin
             ]
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height - 100,
+            height: MediaQuery.of(context).size.height - 100.h,
             width: double.infinity,
             child: TabBarView(controller: _tabController, children: const [
               CakePage(),
@@ -91,13 +92,13 @@ class CakePage extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Colors.transparent,
-        padding: EdgeInsets.symmetric(vertical: spacingUnit(2)),
+        padding: EdgeInsets.symmetric(vertical: 16.sp),
         child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            crossAxisSpacing: 8,
-            mainAxisSpacing: 8,
-            childAspectRatio: 0.75
+            crossAxisSpacing: 8.sp,
+            mainAxisSpacing: 8.sp,
+            childAspectRatio: 0.5.sp
           ),
           itemBuilder: (context, index) {
             return _buildCard(cakeData[index], context);
@@ -110,7 +111,7 @@ class CakePage extends StatelessWidget {
 
   Widget _buildCard(Cake cake, context) {
     return Padding(
-      padding: EdgeInsets.all(spacingUnit(1)),
+      padding: EdgeInsets.all(8.sp),
       child: InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context){
@@ -119,11 +120,11 @@ class CakePage extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.r),
             color: Theme.of(context).colorScheme.surface,
             border: Border.all(
               color: Theme.of(context).colorScheme.outline,
-              width: 1
+              width: 1.w
             ),
             boxShadow: [
               BoxShadow(
@@ -144,31 +145,31 @@ class CakePage extends StatelessWidget {
             Hero(
               tag: cake.thumb,
               child: Container(
-                height: 120,
-                width: 120,
+                height: 120.h,
+                width: 120.w,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(image: AssetImage(cake.thumb), fit: BoxFit.fill)
+                  borderRadius: BorderRadius.circular(20.r),
+                  image: DecorationImage(image: AssetImage(cake.thumb), fit: BoxFit.cover)
                 )
               )
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Text('Rp ${cake.price}', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: accentMain, fontWeight: FontWeight.bold)),
             Text(cake.name, style: Theme.of(context).textTheme.bodyMedium),
-            Padding(padding: EdgeInsets.symmetric(vertical: spacingUnit(1)),
-              child: Container(color: Colors.grey.shade200, height: 1)
+            Padding(padding: EdgeInsets.symmetric(vertical: 8.sp),
+              child: Container(color: Colors.grey.shade200, height: 1.h)
             ),
-            Padding(padding: EdgeInsets.symmetric(horizontal: spacingUnit(2)),
+            Padding(padding: EdgeInsets.symmetric(horizontal: 16.sp),
               child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Icon(Icons.shopping_basket, color: primaryMain, size: 16),
-                SizedBox(width: spacingUnit(1)),
+                Icon(Icons.shopping_basket, color: primaryMain, size: 16.sp),
+                SizedBox(width: 8.w),
                 Text('Buy', style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: primaryMain)),
                 Expanded(child: Container()),
-                Icon(Icons.remove_circle_outline, size: 16, color: secondaryMain),
-                SizedBox(width: spacingUnit(1)),
+                Icon(Icons.remove_circle_outline, size: 16.sp, color: secondaryMain),
+                SizedBox(width: 8.w),
                 Text('3', style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: primaryMain)),
-                SizedBox(width: spacingUnit(1)),
-                Icon(Icons.add_circle_outline, size: 16, color: secondaryMain),
+                SizedBox(width: 8.w),
+                Icon(Icons.add_circle_outline, size: 16.sp, color: secondaryMain),
               ])
             )
           ])
@@ -188,22 +189,22 @@ class BottomNavMenu extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       elevation: 10,
       notchMargin: 10,
-      height: 60,
+      height: 60.h,
       color: Colors.transparent,
       padding: const EdgeInsets.all(0),
       child: Container(
-        height: 30,
+        height: 30.h,
         decoration: BoxDecoration(
           color: secondaryLight,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(25),
-            topRight: Radius.circular(25),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25.r),
+            topRight: Radius.circular(25.r),
           )
         ),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           SizedBox(
-            height: 20,
-            width: MediaQuery.of(context).size.width / 2 - 20,
+            height: 20.h,
+            width: MediaQuery.of(context).size.width / 2 - 20.w,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -213,8 +214,8 @@ class BottomNavMenu extends StatelessWidget {
             )
           ),
           SizedBox(
-            height: 20,
-            width: MediaQuery.of(context).size.width / 2 - 20,
+            height: 20.h,
+            width: MediaQuery.of(context).size.width / 2 - 20.w,
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
