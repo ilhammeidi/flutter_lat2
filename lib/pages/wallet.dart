@@ -7,11 +7,19 @@ import 'package:latihan2/widgets/titles/title_style.dart';
 class Wallet extends StatelessWidget {
   const Wallet({super.key});
 
-  /* Todo: 
-  ** 
-  */
+  final whiteColor = const TextStyle(
+    color: Colors.white,
+    fontSize: 40,
+    fontWeight: FontWeight.w700,
+  );
+
   @override
   Widget build(BuildContext context) {
+    final whiteColor2 = Theme.of(context).textTheme.displayLarge?.copyWith(
+      color: Colors.white,
+      fontWeight: FontWeight.w700
+    );
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -68,26 +76,32 @@ class Wallet extends StatelessWidget {
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: spacingUnit(15)),
-            Padding(
-              padding: EdgeInsets.all(spacingUnit(2)),
-              child: Text('Saldo', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.w700)),
-            ),
-            Padding(
-              padding: EdgeInsets.all(spacingUnit(2)),
-              child: Text('Rp. 2.000.000.000', style: Theme.of(context).textTheme.displayMedium?.copyWith(color: Colors.white)),
-            ),
-            Padding(
-              padding: EdgeInsets.all(spacingUnit(5)),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ShortcutBtn(icon: Icons.send_rounded, name: 'Send'),
-                  ShortcutBtn(icon: Icons.wallet, name: 'My Wallet'),
-                  ShortcutBtn(icon: Icons.payment, name: 'Receive'),
-                  ShortcutBtn(icon: Icons.more_horiz, name: 'More'),
-                ],
-              ),
+            Builder(
+              builder: (context) {
+                return Column(children: [
+                  SizedBox(height: spacingUnit(15)),
+                  Padding(
+                    padding: EdgeInsets.all(spacingUnit(2)),
+                    child: Text('Saldo', style: whiteColor2),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(spacingUnit(2)),
+                    child: Text('Rp. 2.000.000.000', style: whiteColor),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(spacingUnit(5)),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ShortcutBtn(icon: Icons.send_rounded, name: 'Send'),
+                        ShortcutBtn(icon: Icons.wallet, name: 'My Wallet'),
+                        ShortcutBtn(icon: Icons.payment, name: 'Receive'),
+                        ShortcutBtn(icon: Icons.more_horiz, name: 'More'),
+                      ],
+                    ),
+                  ),
+                ]);
+              }
             ),
             Expanded(
               child: Container(
@@ -166,7 +180,7 @@ class ShortcutBtn extends StatelessWidget {
           child: Icon(icon, color: Colors.white, size: 24,),
         ),
         Padding(padding: EdgeInsets.symmetric(vertical: spacingUnit(2)),
-          child: Text(name, style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white)),
+          child: Text(name, style: Theme.of(context).textTheme.bodyMedium),
         )
       ],
     );

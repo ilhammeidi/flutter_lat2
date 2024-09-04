@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.10+1
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
@@ -23,6 +24,7 @@ flutter:
     - assets/socmed/
     - assets/grocery/
     - assets/cleaning/
+    - assets/cake/
 
   fonts:
     - family: Quicksand
