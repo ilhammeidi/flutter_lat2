@@ -26,7 +26,14 @@ class _SocmedState extends State<Socmed> {
           'assets/socmed/logo.svg',
           colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onSurface, BlendMode.srcIn)
         ),
-        // title: const Text('Social Media', style: TextStyle(fontWeight: FontWeight.bold),),
+        titleSpacing: 0,
+        leadingWidth: 48,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios)
+        ),
         actions: [
           SvgPicture.asset('assets/socmed/icon_add.svg', colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onSurface, BlendMode.srcIn),),
           Padding(

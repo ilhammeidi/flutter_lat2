@@ -46,6 +46,14 @@ class Wallet extends StatelessWidget {
             ]),
           ),
         ]),
+        titleSpacing: 0,
+        leadingWidth: 48,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios)
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),

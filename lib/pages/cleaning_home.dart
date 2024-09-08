@@ -68,7 +68,13 @@ class _CleaningHomeState extends State<CleaningHome> {
           'Choose Packages',
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        )
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios)
+        ),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,

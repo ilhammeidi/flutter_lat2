@@ -22,6 +22,12 @@ class _BarberShopState extends State<BarberShop> {
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.surface,
         title: Text('barbershop'.toUpperCase(), style: Theme.of(context).textTheme.headlineLarge),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios)
+        ),
       ),
       body: Container(color: Theme.of(context).colorScheme.surfaceContainerLowest, 
         child: Column(children: [

@@ -27,6 +27,12 @@ class _CakeShopState extends State<CakeShop> with SingleTickerProviderStateMixin
       appBar: AppBar(
         title: const Text("Cake Shop"),
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios)
+        ),
         actions: [
           IconButton(
             onPressed: () {},
@@ -97,8 +103,8 @@ class CakePage extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 8.sp,
+            childAspectRatio: 0.5.sp,
             mainAxisSpacing: 8.sp,
-            childAspectRatio: 0.5.sp
           ),
           itemBuilder: (context, index) {
             return _buildCard(cakeData[index], context);

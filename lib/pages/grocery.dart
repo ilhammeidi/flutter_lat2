@@ -12,7 +12,12 @@ class Grocery extends StatelessWidget {
       appBar: AppBar(
         elevation: 1,
         backgroundColor: Theme.of(context).colorScheme.surface,
-        leading: Icon(Icons.menu, color: Theme.of(context).colorScheme.onSurface),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios)
+        ),
         title: const Text('Grocery Apps'),
         centerTitle: true,
         actions: [

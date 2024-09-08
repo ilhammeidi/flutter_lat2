@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan2/pages/barber_shop.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:latihan2/pages/home_menu.dart';
 
 void main() {
   runApp(const MainApp());
@@ -75,7 +75,7 @@ class MainApp extends StatelessWidget {
               outline: Colors.grey[800]!, // Defines whether the color scheme is light or dark
             ),
           ),
-          home: const BarberShop()
+          home: const HomeMenu()
         );
       }
     );
