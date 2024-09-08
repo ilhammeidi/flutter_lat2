@@ -10,6 +10,7 @@ dependencies:
   change_case: ^2.1.0
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
   font_awesome_flutter: ^10.7.0
 
